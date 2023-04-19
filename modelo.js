@@ -40,6 +40,10 @@ function get_num_respostas(id_pergunta) {
   const resultado = bd.query('select count(*) from respostas where id_pergunta = ?', [id_pergunta]);
   return resultado['count(*)'];
 }
+function editarMensagem(){
+  let mensagem = document.getElementById(id_pergunta).value
+  document.getElementById().innerHTML = mensagem
+}
 
 exports.reconfig_bd = reconfig_bd;
 exports.listar_perguntas = listar_perguntas;
