@@ -26,7 +26,9 @@
             <th scope="row"><%= p.id_pergunta %></th>
             <td><%=p.texto%></td>
             <td><a href="/respostas/?id_pergunta=<%=p.id_pergunta%>"><%=p.num_respostas%></a></td>
-            <td><a href="/respostas/?id_pergunta=<%=p.id_pergunta%>"></a><a href="">editar</a>  <a href="">excluir</a></td>
+            <td><a href="/perguntas/editar/<%= p.id_pergunta %>">editar</a> <a href="#">excluir</a></td>
+
+            <!-- <td><a href="/respostas/?id_pergunta=<%=p.id_pergunta%>"></a><a href="">editar</a><a href="">excluir</a></td> -->
           </tr>        
           <% } %>
         </tbody>
