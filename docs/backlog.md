@@ -6,7 +6,7 @@ Assumindo esse cenário, o backlog do produto, as histórias de usuários e as t
 
 **[Histórias de Usuários e Backlog do Sprint 1](https://github.com/users/mtov/projects/1)**
 
-**[Histórias de Usuários e Backlog do Sprint 2](https://github.com/users/mtov/projects/1)**
+**[Histórias de Usuários e Backlog do Sprint 2](https://github.com/users/Edivansanto5/projects/1/views/1)**
 
 
 ## Exercício
