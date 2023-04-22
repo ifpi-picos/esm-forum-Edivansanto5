@@ -23,7 +23,12 @@
             <th scope="row"><%= p.id_pergunta %></th>
             <td><%=p.texto%></td>
             <td><a href="/respostas/?id_pergunta=<%=p.id_pergunta%>"><%=p.num_respostas%></a></td>
-          </tr>        
+            <td><a href="/pergunta/?id_pergunta=<%=p.id_pergunta%>">Editar</a></td>
+            <td><a href="/pergunta/?id_pergunta=<%=p.id_pergunta%>">excluir</a></td>
+            
+           
+            
+         
           <% } %>
         </tbody>
         </table>      
