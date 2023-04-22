@@ -15,6 +15,7 @@
             <th scope="col">ID</th>
             <th scope="col">Pergunta</th>
             <th scope="col">Respostas</th>
+            
           </tr>
         </thead>
         <tbody>
@@ -23,12 +24,9 @@
             <th scope="row"><%= p.id_pergunta %></th>
             <td><%=p.texto%></td>
             <td><a href="/respostas/?id_pergunta=<%=p.id_pergunta%>"><%=p.num_respostas%></a></td>
-            <td><a href="/pergunta/?id_pergunta=<%=p.id_pergunta%>">Editar</a></td>
-            <td><a href="/pergunta/?id_pergunta=<%=p.id_pergunta%>">excluir</a></td>
+            <td><a href="/excluir-pergunta/:id_pergunta<%=p.id_pergunta%>">Editar</a></td>
+            <td><a href="/editar-pergunta/:id_pergunta'<%=p.id_pergunta%>">excluir</a></td>
             
-           
-            
-         
           <% } %>
         </tbody>
         </table>      

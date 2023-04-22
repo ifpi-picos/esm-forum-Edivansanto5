@@ -58,6 +58,32 @@ app.post('/respostas', (req, res) => {
   } 
 });
 
+// Rota para excluir uma pergunta
+app.get('/excluir-pergunta/:id_pergunta', (req, res) => {
+  const id_pergunta = req.params.id_pergunta;
+  try {
+    modelo.excluir_pergunta(id_pergunta);
+    res.redirect('/');
+  }
+  catch(erro) {
+    res.status(500).json(erro.message); 
+  } 
+});
+
+// Rota para editar uma pergunta
+app.get('/editar-pergunta/:id_pergunta', (req, res) => {
+  const id_pergunta = req.params.id_pergunta;
+  const pergunta = modelo.get_pergunta(id_pergunta);
+  try {
+    res.render('editar-pergunta', {
+      pergunta: pergunta
+    });
+  }
+  catch(erro) {
+    res.status(500).json(erro.message); 
+  } 
+});
+
 // espera e trata requisições de clientes
 const port = 3000;
 app.listen(port, 'localhost', () => {
