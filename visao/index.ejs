@@ -26,9 +26,7 @@
             <th scope="row"><%= p.id_pergunta %></th>
             <td><%=p.texto%></td>
             <td><a href="/respostas/?id_pergunta=<%=p.id_pergunta%>"><%=p.num_respostas%></a></td>
-            <td>
-              <button onclick="excluirPergunta(<%= p.id_pergunta %>);">Excluir</button>
-            </td>
+           
               
           <% } %>
         </tbody>
@@ -45,17 +43,7 @@
   <textarea rows="3" cols="50" name="pergunta" form="form"></textarea><br>
   <input type="submit" form="form" value="Enviar">
 
-</section>
-<script>
-  function excluirPergunta(idPergunta) {
-     
-    console.log('seu id é ',idPergunta);
 
-
-  }
-
-
- </script>
 
 <%- include('footer.html') -%>
 
