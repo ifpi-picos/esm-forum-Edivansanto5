@@ -58,10 +58,6 @@ app.post('/respostas', (req, res) => {
   } 
 });
 
-// editar pergunta
-
-
-
 // espera e trata requisições de clientes
 const port = 3000;
 app.listen(port, 'localhost', () => {

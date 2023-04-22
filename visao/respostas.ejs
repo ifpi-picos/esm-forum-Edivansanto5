@@ -14,7 +14,7 @@
           <table class="table table-striped">
           <thead>
             <tr>
-              <th scope="col"></th> 
+              <th scope="col"></th>
             </tr>
           </thead>
           <tbody>
@@ -39,13 +39,6 @@
     <input type="submit" form="form" value="Enviar">
   
   </section>
-  
-  <form action="/perguntas/editar" method="post">
-    <input type="hidden" name="id_pergunta" value="<%= pergunta.id_pergunta %>">
-    <textarea rows="3" cols="50" name="texto"><%= pergunta.texto %></textarea><br>
-    <input type="submit" value="Salvar">
-  </form>
-  
   
   <%- include('footer.html') -%>
   

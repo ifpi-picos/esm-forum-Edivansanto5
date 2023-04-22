@@ -15,10 +15,7 @@
             <th scope="col">ID</th>
             <th scope="col">Pergunta</th>
             <th scope="col">Respostas</th>
-            <th scope="col">Opção</th> 
-
           </tr>
-          
         </thead>
         <tbody>
         <% for (const p of perguntas) { %>
@@ -26,8 +23,7 @@
             <th scope="row"><%= p.id_pergunta %></th>
             <td><%=p.texto%></td>
             <td><a href="/respostas/?id_pergunta=<%=p.id_pergunta%>"><%=p.num_respostas%></a></td>
-           
-              
+          </tr>        
           <% } %>
         </tbody>
         </table>      
@@ -42,6 +38,8 @@
   </form>
   <textarea rows="3" cols="50" name="pergunta" form="form"></textarea><br>
   <input type="submit" form="form" value="Enviar">
+
+</section>
 
 <%- include('footer.html') -%>
 
