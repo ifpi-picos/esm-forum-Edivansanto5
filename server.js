@@ -59,30 +59,51 @@ app.post('/respostas', (req, res) => {
 });
 
 // Rota para excluir uma pergunta
-app.get('/excluir-pergunta/:id_pergunta', (req, res) => {
-  const id_pergunta = req.params.id_pergunta;
+app.get('/perguntas/editar', (req, res) => {
   try {
-    modelo.excluir_pergunta(id_pergunta);
-    res.redirect('/');
-  }
-  catch(erro) {
-    res.status(500).json(erro.message); 
-  } 
-});
-
-// Rota para editar uma pergunta
-app.get('/editar-pergunta/:id_pergunta', (req, res) => {
-  const id_pergunta = req.params.id_pergunta;
-  const pergunta = modelo.get_pergunta(id_pergunta);
-  try {
-    res.render('editar-pergunta', {
-      pergunta: pergunta
+    const id = req.query.id_pergunta;
+    // const perguntas = req.body.novaPerguntas;
+    const pergunta = modelo.get_pergunta(id);
+    res.render('editarPergunta', {
+      pergunta
     });
   }
   catch(erro) {
     res.status(500).json(erro.message); 
   } 
 });
+
+//É um post que edita
+app.post('/pergunta', (req, res) => {
+  try {
+    const id = req.body.id_pergunta;
+    const novaPergunta = req.body.novaPergunta;
+    console.log(novaPergunta)
+    console.log(id)
+    const pergunta = modelo.editar_perguntas(id, novaPergunta);
+    res.render('pergunta-sucesso', {
+      pergunta
+    });
+  }
+  catch(erro) {
+    res.status(500).json(erro.message); 
+  } 
+});
+
+// deleta uma pergunta
+
+//é um get que deleta
+app.get('/perguntas', (req, res) => {
+  try {
+    const id_pergunta = req.query.id_pergunta;
+    modelo.remover_perguntas(id_pergunta);
+    res.render('pergunta-sucesso');
+  }
+  catch(erro) {
+    res.status(500).json(erro.message); 
+  } 
+});
+
 
 // espera e trata requisições de clientes
 const port = 3000;

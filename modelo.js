@@ -28,6 +28,13 @@ function cadastrar_resposta(id_pergunta, texto) {
   bd.exec('INSERT INTO respostas (id_pergunta, texto) VALUES(?, ?)', params);
 }
 
+//
+function get_num_respostas(id_pergunta) {
+  const resultado = bd.query('select count(*) from respostas where id_pergunta = ?', [id_pergunta]);
+  return resultado['count(*)'];
+}
+
+
 function get_pergunta(id_pergunta) {
   return bd.query('select * from perguntas where id_pergunta = ?', [id_pergunta]);
 }
@@ -36,9 +43,21 @@ function get_respostas(id_pergunta) {
   return bd.queryAll('select * from respostas where id_pergunta = ?', [id_pergunta]);
 }
 
+//daqui para baixo
 function get_num_respostas(id_pergunta) {
   const resultado = bd.query('select count(*) from respostas where id_pergunta = ?', [id_pergunta]);
   return resultado['count(*)'];
+}
+
+function editar_perguntas(id, texto) {
+  const params = [texto, id];
+  bd.exec('UPDATE perguntas set texto=? where id_pergunta=?', params);
+}
+
+function remover_perguntas(id_pergunta) {
+  const params = [id_pergunta];
+  console.log(id_pergunta)
+  bd.exec('DELETE from perguntas where id_pergunta=?', params);
 }
 
 exports.reconfig_bd = reconfig_bd;
@@ -48,3 +67,5 @@ exports.cadastrar_resposta = cadastrar_resposta;
 exports.get_pergunta = get_pergunta;
 exports.get_respostas = get_respostas;
 exports.get_num_respostas = get_num_respostas;
+exports.editar_perguntas = editar_perguntas;
+exports.remover_perguntas = remover_perguntas;
